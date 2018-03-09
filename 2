@@ -1,0 +1,28 @@
+#! /bin/bash
+
+#for i in PID NAME PPID STATE
+#do
+#echo "i is : " ${!i}
+
+#var=`pidof bash`
+#cd /proc/`pidof bash` grep $var && cat status | grep ppid
+#done
+
+
+if [ $# -eq 1 ]
+then
+set `ps -all -A | grep $1`
+PIDd=$4
+PPIDd=$5
+STATE="running"
+shift 5
+NAME=$9 
+echo "PID = " $PIDd
+echo "Name = " $NAME
+echo "PPID = " $PPIDd
+echo "STATE = " $STATE
+
+else
+echo "no arguements passed / INVALID INPUT :("
+
+fi 

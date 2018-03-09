@@ -1,0 +1,34 @@
+#! /bin/bash
+
+function showAllOwners()
+{
+
+    
+if [ $# -eq 0 ]
+then
+echo "RULE 1"
+echo "no arguements are passed " 
+
+elif [ $# -gt 1 ]
+then
+echo "RULE 1"
+echo "more arguements are passed "
+
+else
+echo correct no of arguements
+    username=$1
+   for i in `ls *[!~]`
+   do
+   	set `ls -li $i`
+ 		if [ $username=$4 ]
+ 		then  echo $i "|" -f  "|"$4  
+		fi
+   done
+
+fi
+
+
+}
+
+
+showAllOwners $@

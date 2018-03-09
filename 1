@@ -1,0 +1,101 @@
+#! /bin/bash
+
+function table1 () 
+{
+#echo $1
+#echo $2
+if [ $# -eq 0 ]
+then
+echo "RULE 1"
+echo "no arguements are passed " 
+
+elif [ $# -gt 6 ]
+then 
+echo "RULE 2"
+echo "arguemnets are greater than 6 "
+
+elif [ $# -eq 1 ] 
+then
+echo "RULE 3"
+	first=$1
+
+   	for i in `seq 1 10`
+   	do
+     		 echo "$first * $i = " `expr $first \* $i`
+   	done
+
+
+elif [ $# -eq 3 -a $2 = "-s" ] 
+then
+echo "RULE 4"
+	first=$1
+	second=$3
+	option=$2
+
+   	for i in `seq $second 10`
+   	do
+     		 echo "$first * $i = " `expr $first \* $i`
+   	done
+
+
+elif [ $# -eq 3 -a $2 = "-e" ] 
+then
+echo "RULE 5"
+	first=$1
+	second=$3
+	option=$2
+
+   	for i in `seq 1 $second`
+   	do
+     		 echo "$first * $i = " `expr $first \* $i`
+   	done
+
+#6
+elif [ $# -eq 5 -a $2 = "-s" -a  $4 = "-e" ] 
+then
+echo "RULE 6"
+	first=$1
+	second=$3
+        third=$5
+	option=$2
+
+   	for i in `seq $second $third` 
+   	do
+
+     		 echo "$first * $i = " `expr $first \* $i`
+   	done
+
+#7
+
+elif [ $# -eq 6 -a $2 = "-s" -a  $4 = "-e" -a $6 = "-r" ] 
+then
+echo "RULE 7"
+
+	first=$1
+	second=$3
+        third=$5
+	option=$2
+        count=$third
+	start=`expr $second - 1`
+   	while [ $count -gt $start ]
+	do
+     		echo "$first * $count = " `expr $first \* $count`
+		count=`expr $count - 1`
+	done
+
+
+else
+echo "elsee block"
+fi
+
+
+    	
+}
+
+
+
+table1 $@
+
+
+
+
